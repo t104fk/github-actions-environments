@@ -38,7 +38,7 @@ jobs:
     name: Deploy to Prd
     needs: build
     if: github.ref_name == 'main'
-    environment: dev
+    environment: prd
     runs-on: ubuntu-latest
     steps:
       - name: Check secrets
