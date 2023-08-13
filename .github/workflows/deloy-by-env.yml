@@ -51,7 +51,7 @@ jobs:
           else
             echo "Incorrect AWS_ACCESS_KEY_ID"
           fi
-          if [[ $secrets.AWS_SECRET_ACCESS_KEY == prd* ]]; then
+          if [[ $AWS_SECRET_ACCESS_KEY == prd* ]]; then
             echo "Correct AWS_SECRET_ACCESS_KEY"
           else
             echo "Incorrect AWS_SECRET_ACCESS_KEY"
