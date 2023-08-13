@@ -20,13 +20,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check secrets
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
-          if [[ ${{ secrets.AWS_ACCESS_KEY_ID }} == dev* ]]; then
+          if [[ $AWS_ACCESS_KEY_ID == dev* ]]; then
             echo "Correct AWS_ACCESS_KEY_ID"
           else
             echo "Incorrect AWS_ACCESS_KEY_ID"
           fi
-          if [[ ${{ secrets.AWS_SECRET_ACCESS_KEY }} == dev* ]]; then
+          if [[ $AWS_SECRET_ACCESS_KEY == dev* ]]; then
             echo "Correct AWS_SECRET_ACCESS_KEY"
           else
             echo "Incorrect AWS_SECRET_ACCESS_KEY"
@@ -39,13 +42,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check secrets
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
-          if [[ ${{ secrets.AWS_ACCESS_KEY_ID }} == prd* ]]; then
+          if [[ $AWS_ACCESS_KEY_ID == prd* ]]; then
             echo "Correct AWS_ACCESS_KEY_ID"
           else
             echo "Incorrect AWS_ACCESS_KEY_ID"
           fi
-          if [[ ${{ secrets.AWS_SECRET_ACCESS_KEY }} == prd* ]]; then
+          if [[ $secrets.AWS_SECRET_ACCESS_KEY == prd* ]]; then
             echo "Correct AWS_SECRET_ACCESS_KEY"
           else
             echo "Incorrect AWS_SECRET_ACCESS_KEY"
